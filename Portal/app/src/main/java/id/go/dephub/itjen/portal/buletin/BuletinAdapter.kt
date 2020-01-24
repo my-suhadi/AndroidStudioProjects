@@ -43,7 +43,7 @@ class BuletinAdapter(private val listOfBuletin: List<Buletin>) : RecyclerView.Ad
 
         fun bindBuletin(b : Buletin) {
             buletin = b
-            Glide.with(view.context).load("https://picsum.photos/200?random=1901").into(view.imgBuletin)
+            Glide.with(view.context).load(b.buletinUrl.replace("pdf","jpg", true)).into(view.imgBuletin)
             view.noBuletin.text = b.nomorBuletin
         }
 

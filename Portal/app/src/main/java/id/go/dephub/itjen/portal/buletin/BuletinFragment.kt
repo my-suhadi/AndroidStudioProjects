@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import id.go.dephub.itjen.portal.R
@@ -36,7 +37,7 @@ class BuletinFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        rvBuletin.layoutManager = LinearLayoutManager(activity)
+        rvBuletin.layoutManager = GridLayoutManager(activity, 3)
 
         RetrofitApiService.create().getMenuList().enqueue(object : Callback<List<Menu>> {
             override fun onFailure(call: Call<List<Menu>>, t: Throwable) {
@@ -50,7 +51,6 @@ class BuletinFragment : Fragment() {
                 for (i in 0..j) {
                     if (response.body()!![i].menuItemParent == "1602") {
                         listOfBuletin.add(Buletin(response.body()!![i].title, response.body()!![i].url))
-                        d("BuletinFragment", "onResponse: ${response.body()!![i].url.replace("pdf","jpg", true)}")
                     }
                 }
 
