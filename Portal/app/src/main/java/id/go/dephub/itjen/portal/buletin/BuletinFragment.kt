@@ -50,11 +50,11 @@ class BuletinFragment : Fragment() {
                 for (i in 0..j) {
                     if (response.body()!![i].menuItemParent == "1602") {
                         listOfBuletin.add(Buletin(response.body()!![i].title, response.body()!![i].url))
+                        d("BuletinFragment", "onResponse: ${response.body()!![i].url.replace("pdf","jpg", true)}")
                     }
                 }
 
                 rvBuletin.adapter = BuletinAdapter(listOfBuletin)
-                d("BuletinFragment", "onResponse: ${listOfBuletin.size}")
             }
         })
     }
