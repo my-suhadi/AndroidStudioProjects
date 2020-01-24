@@ -38,20 +38,27 @@ class BuletinFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         rvBuletin.layoutManager = LinearLayoutManager(activity)
 
-        RetrofitApiService.create().getMenuList().enqueue(object : Callback<Menu> {
-            override fun onFailure(call: Call<Menu>, t: Throwable) {
+        RetrofitApiService.create().getMenuList().enqueue(object : Callback<List<Menu>> {
+            override fun onFailure(call: Call<List<Menu>>, t: Throwable) {
                 d("BuletinFragment", "onFailure: ${t.localizedMessage}")
             }
 
-            override fun onResponse(call: Call<Menu>, response: Response<Menu>) {
+            override fun onResponse(call: Call<List<Menu>>, response: Response<List<Menu>>) {
                 val listOfBuletin = mutableListOf<Buletin>()
+                val j = response.body()!!.size - 1
 
-                d("BuletinFragment", "onResponse: ${response.body()!!.menuItemParent}")
+                for (i in 0..j) {
+                    if (response.body()!![i].menuItemParent == "1602") {
+                        listOfBuletin.add(Buletin(response.body()!![i].title, response.body()!![i].url))
+                    }
+                }
+
+                rvBuletin.adapter = BuletinAdapter(listOfBuletin)
+                d("BuletinFragment", "onResponse: ${listOfBuletin.size}")
             }
         })
-
-        rvBuletin.adapter = BuletinAdapter(generateSampleData())
     }
+/*
 
     private fun generateSampleData(): List<Buletin>{
         return listOf(
@@ -73,4 +80,5 @@ class BuletinFragment : Fragment() {
             )
         )
     }
+*/
 }

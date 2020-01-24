@@ -16,7 +16,7 @@ interface RetrofitApiService {
     fun getImage(@Path("id") id : Int ): Call<Image>
     // menu_item_parent utk transparansi adl 1602
     @GET("menus/v1/menus/3")
-    fun getMenuList(): Call<Menu>
+    fun getMenuList(): Call<List<Menu>>
 
     companion object {
         fun create() : RetrofitApiService {
