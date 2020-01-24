@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_beranda">
+    <fragment
+        android:id="@+id/nav_beranda"
+        android:name="id.go.dephub.itjen.portal.beranda.HomeFragment"
+        android:label="Beranda"
+        tools:layout="@layout/home_fragment">
+        <action
+            android:id="@+id/action_nav_beranda_to_nav_artikel"
+            app:destination="@id/nav_artikel" />
+        <action
+            android:id="@+id/action_nav_beranda_to_nav_buletin"
+            app:destination="@id/nav_buletin" />
+        <action
+            android:id="@+id/action_nav_beranda_to_detailPostFragment"
+            app:destination="@id/detailPostFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_artikel"
+        android:name="id.go.dephub.itjen.portal.artikel.ArticleFragment"
+        android:label="Artikel"
+        tools:layout="@layout/article_fragment" />
+    <fragment
+        android:id="@+id/nav_buletin"
+        android:name="id.go.dephub.itjen.portal.buletin.BuletinFragment"
+        android:label="Buletin"
+        tools:layout="@layout/buletin_fragment" />
+    <fragment
+        android:id="@+id/detailPostFragment"
+        android:name="id.go.dephub.itjen.portal.beranda.DetailPostFragment"
+        tools:layout="@layout/fragment_detail_post">
+        <argument
+            android:name="postLink"
+            app:argType="string" />
+    </fragment>
+</navigation>

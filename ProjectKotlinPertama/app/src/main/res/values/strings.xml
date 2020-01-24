@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ProjectKotlinPertama</string>
+    <string name="alas">Masukkan Alas</string>
+    <string name="tinggi">Masukkan Tinggi</string>
+    <string name="deskripsi">Ini logo warung kopi</string>
+    <string name="hitung">Hitung</string>
+    <string name="hasil">Hasil</string>
+</resources>
