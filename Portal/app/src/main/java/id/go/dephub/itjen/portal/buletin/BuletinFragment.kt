@@ -14,6 +14,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 
@@ -54,7 +56,13 @@ class BuletinFragment : Fragment() {
                     }
                 }
 
-                rvBuletin.adapter = BuletinAdapter(listOfBuletin)
+                rvBuletin.adapter = BuletinAdapter(listOfBuletin, object : BuletinAdapter.OnClickListener {
+                    override fun onItemClick(buletinUrl: String) {
+                        val bundle = bundleOf("buletinUrl" to buletinUrl)
+                        Navigation.findNavController(view!!).navigate(R.id.action_nav_buletin_to_buletin_viewer, bundle)
+                        d("BuletinFragment", "onItemClicked: $buletinUrl")
+                    }
+                })
             }
         })
     }

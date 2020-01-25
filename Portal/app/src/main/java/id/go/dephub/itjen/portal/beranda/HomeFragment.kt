@@ -60,7 +60,7 @@ class HomeFragment : Fragment() {
         rvBeranda.adapter = HomeAdapter(posts, object : HomeAdapter.OnClickListener {
             override fun onItemClick(postLink: String) {
                 val bundle = bundleOf("postLink" to  postLink)
-                Navigation.findNavController(view!!).navigate(R.id.action_nav_beranda_to_detailPostFragment, bundle)
+                Navigation.findNavController(view!!).navigate(R.id.action_nav_beranda_to_detail_post, bundle)
             }
         })
 

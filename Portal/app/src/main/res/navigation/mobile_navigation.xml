@@ -16,8 +16,8 @@
             android:id="@+id/action_nav_beranda_to_nav_buletin"
             app:destination="@id/nav_buletin" />
         <action
-            android:id="@+id/action_nav_beranda_to_detailPostFragment"
-            app:destination="@id/detailPostFragment" />
+            android:id="@+id/action_nav_beranda_to_detail_post"
+            app:destination="@id/detail_post" />
     </fragment>
     <fragment
         android:id="@+id/nav_artikel"
@@ -28,13 +28,26 @@
         android:id="@+id/nav_buletin"
         android:name="id.go.dephub.itjen.portal.buletin.BuletinFragment"
         android:label="Buletin"
-        tools:layout="@layout/buletin_fragment" />
+        tools:layout="@layout/buletin_fragment" >
+        <action
+            android:id="@+id/action_nav_buletin_to_buletin_viewer"
+            app:destination="@id/buletin_viewer" />
+    </fragment>
     <fragment
-        android:id="@+id/detailPostFragment"
+        android:id="@+id/detail_post"
         android:name="id.go.dephub.itjen.portal.beranda.DetailPostFragment"
         tools:layout="@layout/fragment_detail_post">
         <argument
             android:name="postLink"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/buletin_viewer"
+        android:name="id.go.dephub.itjen.portal.buletin.BuletinViewer"
+        android:label="fragment_buletin_viewer"
+        tools:layout="@layout/fragment_buletin_viewer" >
+        <argument
+            android:name="buletinUrl"
             app:argType="string" />
     </fragment>
 </navigation>

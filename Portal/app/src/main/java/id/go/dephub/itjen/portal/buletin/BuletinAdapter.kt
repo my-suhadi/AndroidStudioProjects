@@ -10,13 +10,17 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import id.go.dephub.itjen.portal.R
+import id.go.dephub.itjen.portal.beranda.HomeAdapter
 import id.go.dephub.itjen.portal.buletin.model.Buletin
 import kotlinx.android.synthetic.main.item_buletin.view.*
 
-class BuletinAdapter(private val listOfBuletin: List<Buletin>) : RecyclerView.Adapter<BuletinAdapter.BuletinViewHolder>() {
+class BuletinAdapter(
+    private val listOfBuletin: List<Buletin>,
+    val onClickListener: OnClickListener
+) : RecyclerView.Adapter<BuletinAdapter.BuletinViewHolder>() {
 
     // Make the class extend RecyclerView.ViewHolder, allowing the adapter to use it as as a ViewHolder.
-    class BuletinViewHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
+    class BuletinViewHolder(v: View) : RecyclerView.ViewHolder(v) {
 
         /*
         Add a reference to the view you’ve inflated to allow the ViewHolder to access the ImageView and TextView
@@ -24,7 +28,8 @@ class BuletinAdapter(private val listOfBuletin: List<Buletin>) : RecyclerView.Ad
         prevent the constant querying of views.
         */
         private var view: View = v
-        private var buletin : Buletin? = null
+        private var buletin: Buletin? = null
+/*
 
         // Initialize the View.OnClickListener.
         init {
@@ -40,10 +45,12 @@ class BuletinAdapter(private val listOfBuletin: List<Buletin>) : RecyclerView.Ad
 
             d("BuletinAdapter", "CLICK!")
         }
+*/
 
-        fun bindBuletin(b : Buletin) {
+        fun bindBuletin(b: Buletin) {
             buletin = b
-            Glide.with(view.context).load(b.buletinUrl.replace("pdf","jpg", true)).into(view.imgBuletin)
+            Glide.with(view.context).load(b.buletinUrl.replace("pdf", "jpg", true))
+                .into(view.imgBuletin)
             view.noBuletin.text = b.nomorBuletin
         }
 
@@ -51,6 +58,10 @@ class BuletinAdapter(private val listOfBuletin: List<Buletin>) : RecyclerView.Ad
         companion object {
             private val BULETIN_KEY = "BULETIN"
         }
+    }
+
+    interface OnClickListener {
+        fun onItemClick(buletinUrl: String)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BuletinViewHolder {
@@ -64,6 +75,9 @@ class BuletinAdapter(private val listOfBuletin: List<Buletin>) : RecyclerView.Ad
 
     override fun onBindViewHolder(holder: BuletinViewHolder, position: Int) {
         val itemBuletin = listOfBuletin[position]
+        holder.itemView.setOnClickListener {
+            onClickListener.onItemClick(itemBuletin.buletinUrl)
+        }
         holder.bindBuletin(itemBuletin)
     }
 }
