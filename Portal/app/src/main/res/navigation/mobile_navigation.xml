@@ -10,20 +10,20 @@
         android:label="Beranda"
         tools:layout="@layout/home_fragment">
         <action
-            android:id="@+id/action_nav_beranda_to_nav_artikel"
-            app:destination="@id/nav_artikel" />
-        <action
             android:id="@+id/action_nav_beranda_to_nav_buletin"
             app:destination="@id/nav_buletin" />
         <action
             android:id="@+id/action_nav_beranda_to_detail_post"
             app:destination="@id/detail_post" />
+        <action
+            android:id="@+id/action_nav_beranda_to_nav_kontak"
+            app:destination="@id/nav_kontak" />
     </fragment>
     <fragment
-        android:id="@+id/nav_artikel"
-        android:name="id.go.dephub.itjen.portal.artikel.ArticleFragment"
-        android:label="Artikel"
-        tools:layout="@layout/article_fragment" />
+        android:id="@+id/nav_kontak"
+        android:name="id.go.dephub.itjen.portal.kontak.ContactFragment"
+        android:label="Hubungi Kami"
+        tools:layout="@layout/contact_fragment" />
     <fragment
         android:id="@+id/nav_buletin"
         android:name="id.go.dephub.itjen.portal.buletin.BuletinFragment"
@@ -38,14 +38,16 @@
         android:name="id.go.dephub.itjen.portal.beranda.DetailPostFragment"
         tools:layout="@layout/fragment_detail_post">
         <argument
-            android:name="postLink"
+            android:name="postContent"
+            app:argType="string" />
+        <argument
+            android:name="postTitle"
             app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/buletin_viewer"
         android:name="id.go.dephub.itjen.portal.buletin.BuletinViewer"
-        android:label="fragment_buletin_viewer"
-        tools:layout="@layout/fragment_buletin_viewer" >
+        tools:layout="@layout/fragment_buletin_viewer">
         <argument
             android:name="buletinUrl"
             app:argType="string" />

@@ -3,6 +3,7 @@ package id.go.dephub.itjen.portal.beranda
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
@@ -12,12 +13,14 @@ import id.go.dephub.itjen.portal.R
 
 class DetailPostFragment : Fragment() {
 
-    lateinit var postLink: String
+    lateinit var postContent: String
+    lateinit var postTitle: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        postLink = arguments!!.getString("postLink")!!
-        (activity as AppCompatActivity).supportActionBar!!.hide()
+        postContent = arguments!!.getString("postContent")!!
+        postTitle = arguments!!.getString("postTitle")!!
+        //(activity as AppCompatActivity).supportActionBar!!.hide()
     }
 
     override fun onCreateView(
@@ -39,11 +42,13 @@ class DetailPostFragment : Fragment() {
             }
         }
         // webView.settings.builtInZoomControls = true
-        webView.loadUrl(postLink)
+        val htmlData = "<h2>$postTitle</h2><br/>$postContent"
+
+        webView.loadData(htmlData, "text/html","UTF-8")
     }
 
     override fun onDestroy() {
-        (activity as AppCompatActivity).supportActionBar!!.show()
+        //(activity as AppCompatActivity).supportActionBar!!.show()
         super.onDestroy()
     }
 }

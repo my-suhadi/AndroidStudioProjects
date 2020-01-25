@@ -58,8 +58,11 @@ class HomeFragment : Fragment() {
 
     private fun showData(posts: List<Post>) {
         rvBeranda.adapter = HomeAdapter(posts, object : HomeAdapter.OnClickListener {
-            override fun onItemClick(postLink: String) {
-                val bundle = bundleOf("postLink" to  postLink)
+            override fun onItemClick(postContent: String, postTitle: String) {
+                val bundle = bundleOf(
+                    "postContent" to  postContent,
+                    "postTitle" to postTitle
+                    )
                 Navigation.findNavController(view!!).navigate(R.id.action_nav_beranda_to_detail_post, bundle)
             }
         })

@@ -20,7 +20,7 @@ class HomeAdapter(private val posts: List<Post>, private val onClickListener: On
     class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     interface OnClickListener {
-        fun onItemClick(postLink: String)
+        fun onItemClick(postContent: String, postTitle: String)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
@@ -53,8 +53,9 @@ class HomeAdapter(private val posts: List<Post>, private val onClickListener: On
 
         holder.itemView.judulPost.text = post.date
         holder.itemView.isiPost.text = post.title.rendered
+
         holder.itemView.setOnClickListener {
-            onClickListener.onItemClick(post.link)
+            onClickListener.onItemClick(post.content.rendered, post.title.rendered)
         }
     }
 }

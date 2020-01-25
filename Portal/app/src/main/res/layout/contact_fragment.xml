@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".artikel.ArticleFragment">
+    tools:context=".kontak.ContactFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="ARTIKEL"
+        android:text="Hubungi Kami"
         android:textSize="36sp" />
 
 </FrameLayout>

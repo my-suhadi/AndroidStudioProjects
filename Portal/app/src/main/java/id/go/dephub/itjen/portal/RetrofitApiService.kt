@@ -10,7 +10,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface RetrofitApiService {
-    @GET("wp/v2/posts")
+    @GET("wp/v2/posts/?per_page=100")
     fun getAllPosts(): Call<List<Post>>
     @GET("wp/v2/media/{id}")
     fun getImage(@Path("id") id : Int ): Call<Image>
