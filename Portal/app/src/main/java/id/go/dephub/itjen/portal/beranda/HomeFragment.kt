@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +14,7 @@ import id.go.dephub.itjen.portal.R
 import id.go.dephub.itjen.portal.RetrofitApiService
 import id.go.dephub.itjen.portal.beranda.model.Post
 import kotlinx.android.synthetic.main.home_fragment.*
+import kotlinx.android.synthetic.main.progress_bar.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,6 +26,13 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.home_fragment, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        layoutInflater.inflate(R.layout.progress_bar, home_layout)
+        home_layout.progressBar.visibility = ProgressBar.VISIBLE
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -52,14 +61,18 @@ class HomeFragment : Fragment() {
 
             override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) {
                 showData(response.body()!!)
+                home_layout.progressBar.visibility = ProgressBar.GONE
             }
         })
     }
 
     private fun showData(posts: List<Post>) {
+        rvBeranda.setItemViewCacheSize(20)
+
         rvBeranda.adapter = HomeAdapter(posts, object : HomeAdapter.OnClickListener {
-            override fun onItemClick(postContent: String, postTitle: String) {
+            override fun onItemClick(postLink: String, postContent: String, postTitle: String) {
                 val bundle = bundleOf(
+                    "postLink" to postLink,
                     "postContent" to  postContent,
                     "postTitle" to postTitle
                     )

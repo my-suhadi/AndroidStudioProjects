@@ -17,8 +17,6 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-
 import id.go.dephub.itjen.portal.R
 import id.go.dephub.itjen.portal.RetrofitApiService
 import id.go.dephub.itjen.portal.buletin.model.Buletin
