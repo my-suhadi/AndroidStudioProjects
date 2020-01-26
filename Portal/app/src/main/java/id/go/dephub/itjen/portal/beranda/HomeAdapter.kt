@@ -63,7 +63,9 @@ class HomeAdapter(private val posts: List<Post>, private val onClickListener: On
         Glide.get(holder.itemView.context).clearMemory()
         var judul = post.title.rendered
         if (judul.length > 90) {
-            judul = post.title.rendered.subSequence(0..89).toString() + "..."
+            judul = post.title.rendered
+                .slice(0..89)
+                .substringBeforeLast(' ') + "....."
         }
         holder.itemView.judulPost.text = judul
 
