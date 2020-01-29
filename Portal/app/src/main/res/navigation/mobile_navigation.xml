@@ -16,14 +16,14 @@
             android:id="@+id/action_nav_beranda_to_detail_post"
             app:destination="@id/detail_post" />
         <action
-            android:id="@+id/action_nav_beranda_to_nav_kontak"
-            app:destination="@id/nav_kontak" />
+            android:id="@+id/action_nav_beranda_to_nav_struktur"
+            app:destination="@id/nav_struktur" />
     </fragment>
     <fragment
-        android:id="@+id/nav_kontak"
-        android:name="id.go.dephub.itjen.portal.kontak.ContactFragment"
-        android:label="Hubungi Kami"
-        tools:layout="@layout/contact_fragment" />
+        android:id="@+id/nav_struktur"
+        android:name="id.go.dephub.itjen.portal.struktur.StrukturFragment"
+        android:label="Struktur Organisasi"
+        tools:layout="@layout/struktur_fragment" />
     <fragment
         android:id="@+id/nav_buletin"
         android:name="id.go.dephub.itjen.portal.buletin.BuletinFragment"
