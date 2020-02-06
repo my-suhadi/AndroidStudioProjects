@@ -23,7 +23,11 @@
         android:id="@+id/nav_struktur"
         android:name="id.go.dephub.itjen.portal.struktur.StrukturFragment"
         android:label="Struktur Organisasi"
-        tools:layout="@layout/struktur_fragment" />
+        tools:layout="@layout/struktur_fragment" >
+        <action
+            android:id="@+id/action_nav_struktur_to_detailStruktur"
+            app:destination="@id/detailStruktur" />
+    </fragment>
     <fragment
         android:id="@+id/nav_buletin"
         android:name="id.go.dephub.itjen.portal.buletin.BuletinFragment"
@@ -52,4 +56,9 @@
             android:name="buletinUrl"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/detailStruktur"
+        android:name="id.go.dephub.itjen.portal.DetailStruktur"
+        android:label="fragment_detail_struktur"
+        tools:layout="@layout/fragment_detail_struktur" />
 </navigation>
