@@ -3,9 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailStruktur">
+    tools:context=".struktur.DetailStruktur">
 
     <TextView
+        android:id="@+id/tvStrukturDetail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
