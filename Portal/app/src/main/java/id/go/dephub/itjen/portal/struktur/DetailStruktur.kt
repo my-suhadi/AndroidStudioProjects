@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import com.bumptech.glide.Glide
 import id.go.dephub.itjen.portal.R
 import kotlinx.android.synthetic.main.fragment_detail_struktur.*
+import kotlinx.android.synthetic.main.fragment_detail_struktur.view.*
+import kotlinx.android.synthetic.main.item_buletin.view.*
 
 /**
  * A simple [Fragment] subclass.
@@ -32,6 +34,7 @@ class DetailStruktur : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<TextView>(R.id.tvStrukturDetail).text = strukturUrl
+        Glide.with(view.context).load(strukturUrl)
+            .into(view.ivStruktur)
     }
 }
