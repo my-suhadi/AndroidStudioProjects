@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#cacaca"
-    tools:context=".MainActivity">
+    tools:context=".PostActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,36 +14,34 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/userTitle"
+        <TextView
+            android:id="@+id/showTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_marginTop="30dp"
             android:background="#fff"
             android:ems="10"
-            android:hint="Masukkan sesuatu"
+            android:hint="Judul"
             android:inputType="textPersonName"
             android:padding="8dp" />
 
-        <EditText
-            android:id="@+id/userDesc"
+        <TextView
+            android:id="@+id/showDesc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:background="#fff"
             android:ems="10"
-            android:hint="Masukkan deskripsi"
+            android:hint="Deskripsi"
             android:inputType="textPersonName"
             android:padding="8dp" />
 
         <Button
-            android:id="@+id/submitBtn"
+            android:id="@+id/gobackBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="SUBMIT" />
+            android:text="GO BACK" />
     </LinearLayout>
 
 </RelativeLayout>

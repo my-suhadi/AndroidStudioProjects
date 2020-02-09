@@ -1,10 +1,10 @@
 package id.go.dephub.itjen.firstapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,12 +12,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val submit = findViewById<Button>(R.id.submitBtn)
-        val userInput = findViewById<EditText>(R.id.editText)
-        val showText = findViewById<TextView>(R.id.textView)
+        val _userTitle = findViewById<EditText>(R.id.userTitle)
+        val _userDesc = findViewById<EditText>(R.id.userDesc)
+        val _submit = findViewById<Button>(R.id.submitBtn)
 
-        submit.setOnClickListener {
-            showText.text = userInput.text
+        _submit.setOnClickListener {
+            val _intent = Intent(this, PostActivity::class.java)
+            _intent.putExtra("title", _userTitle.text.toString())
+            _intent.putExtra("desc", _userDesc.text.toString())
+            startActivity(_intent)
         }
     }
 }
