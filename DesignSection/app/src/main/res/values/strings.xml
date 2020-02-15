@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Design Section</string>
+    <string name="post_author">Dea</string>
+    <string name="author_job">Web Designer</string>
 </resources>
