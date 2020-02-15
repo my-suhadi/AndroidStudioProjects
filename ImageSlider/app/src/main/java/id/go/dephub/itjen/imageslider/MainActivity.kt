@@ -29,8 +29,14 @@ class MainActivity : AppCompatActivity() {
 
         nextBtn.setOnClickListener {
             index++
+            if (index == images.size) index = 0
             imageSlider.setImageResource(images[index])
         }
-        prevBtn.setOnClickListener {  }
+
+        prevBtn.setOnClickListener {
+            if (index == 0) index = images.size
+            index--
+            imageSlider.setImageResource(images[index])
+        }
     }
 }
