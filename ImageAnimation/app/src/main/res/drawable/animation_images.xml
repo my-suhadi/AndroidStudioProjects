@@ -4,7 +4,5 @@
     <item android:duration="3000" android:drawable="@drawable/background_1" />
     <item android:duration="3000" android:drawable="@drawable/background_2" />
     <item android:duration="3000" android:drawable="@drawable/background_3" />
-    <item android:duration="3000" android:drawable="@drawable/background_4" />
-    <item android:duration="3000" android:drawable="@drawable/background_5" />
 
 </animation-list>
