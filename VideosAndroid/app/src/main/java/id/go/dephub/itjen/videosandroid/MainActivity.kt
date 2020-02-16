@@ -13,6 +13,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun playVideo(v : View) {
-        val buttonClicked = findViewById<Button>(R.id.btn_cancel)
+        val buttonClicked = findViewById<Button>(v.id)
     }
 }

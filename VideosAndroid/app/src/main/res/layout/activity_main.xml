@@ -33,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_button"
+            android:onClick="playVideo"
             android:text="Video One"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
@@ -44,6 +45,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/custom_button"
+            android:onClick="playVideo"
             android:text="Video Two"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
@@ -53,6 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_button"
+            android:onClick="playVideo"
             android:text="Video Three"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
