@@ -28,14 +28,17 @@ class MainActivity : AppCompatActivity() {
             R.id.btn_video1 -> {
                 val videoURI = Uri.parse("android.resource://" + packageName + "/" + R.raw.video_one)
                 videoPlayer.setVideoURI(videoURI)
+                alert.show()
             }
             R.id.btn_video2 -> {
                 val videoURI = Uri.parse("android.resource://" + packageName + "/" + R.raw.video_two)
                 videoPlayer.setVideoURI(videoURI)
+                alert.show()
             }
             R.id.btn_video3 -> {
                 val videoURI = Uri.parse("android.resource://" + packageName + "/" + R.raw.video_three)
                 videoPlayer.setVideoURI(videoURI)
+                alert.show()
             }
         }
     }
