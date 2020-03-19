@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
 
         when (buttonClicked.id) {
             R.id.btn_video1 -> {
-                d("button_video1","video_on")
                 val videoURI = Uri.parse("android.resource://" + packageName + "/" + R.raw.video_one)
                 videoPlayer.setVideoURI(videoURI)
                 alert.show()
