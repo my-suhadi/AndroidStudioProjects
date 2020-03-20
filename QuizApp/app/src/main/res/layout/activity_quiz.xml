@@ -20,7 +20,7 @@
         android:orientation="vertical"></LinearLayout>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tView_rightAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -38,7 +38,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/tView_question_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#064009"
@@ -47,7 +47,7 @@
             android:textColor="#FFFFFF" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/tView_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
@@ -56,7 +56,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/edText_user_answer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"

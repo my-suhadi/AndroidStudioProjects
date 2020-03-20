@@ -15,8 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="false"
-        android:layout_alignParentBottom="true"
-        android:onClick="openActivity" />
+        android:layout_alignParentBottom="true" />
 
     <LinearLayout
         android:id="@+id/btn_getStarted"
@@ -45,6 +44,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/button"
+        android:onClick="openActivity"
         android:text="Get Started"
         android:textColor="#FFFFFF" />
 </RelativeLayout>
