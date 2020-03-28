@@ -2,7 +2,6 @@ package id.go.dephub.itjen.codeeditor
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.Browser
 import android.view.Menu
 import android.view.MenuItem
 import android.webkit.WebView
