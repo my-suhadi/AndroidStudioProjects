@@ -65,6 +65,7 @@
             android:hint="Enter Your Answer"
             android:inputType="textPersonName"
             android:padding="15dp"
+            android:textColor="#039BE5"
             android:textColorHint="@android:color/white" />
     </LinearLayout>
 
