@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/darker_gray"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_alert_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        tools:srcCompat="@drawable/image_four" />
+
+    <TextView
+        android:id="@+id/tv_alert_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="Android App"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_alert_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/btn_alert_close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/holo_green_dark"
+        android:text="Close" />
+</LinearLayout>
