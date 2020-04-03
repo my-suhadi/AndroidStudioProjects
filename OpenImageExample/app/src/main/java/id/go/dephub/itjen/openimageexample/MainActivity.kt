@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log.d
 import android.widget.Button
 import android.widget.ImageView
 
@@ -23,6 +24,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
+        d("onActivityResult", resultCode.toString())
 
         if (resultCode == 111) {
             val imageBitmap = data!!.extras!!.get("data") as Bitmap
