@@ -2,12 +2,14 @@ package id.go.dephub.itjen.openimageexample
 
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log.d
 import android.widget.Button
 import android.widget.ImageView
+import java.net.URI
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +27,15 @@ class MainActivity : AppCompatActivity() {
         galleryButton.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             startActivityForResult(intent, 112)
+        }
+
+        val rateButton = findViewById<Button>(R.id.btn_rate_us)
+        rateButton.setOnClickListener {
+            try {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName")))
+            } catch (error:android.content.ActivityNotFoundException) {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com/store/apps/details/?id=$packageName")))
+            }
         }
     }
 
