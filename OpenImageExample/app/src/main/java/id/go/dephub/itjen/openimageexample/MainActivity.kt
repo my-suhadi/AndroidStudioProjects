@@ -15,23 +15,37 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val openButton = findViewById<Button>(R.id.btn_open)
-        openButton.setOnClickListener {
+        val cameraButton = findViewById<Button>(R.id.btn_camera)
+        cameraButton.setOnClickListener {
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             startActivityForResult(intent, 111)
+        }
+
+        val galleryButton = findViewById<Button>(R.id.btn_gallery)
+        galleryButton.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            startActivityForResult(intent, 112)
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        val showImage = findViewById<ImageView>(R.id.iv_image)
 
-        d("onActivityResult", resultCode.toString())
+        when (resultCode) {
+            111 -> {
+                val imageBitmap = data!!.extras!!.get("data") as Bitmap
+                showImage.setImageBitmap(imageBitmap)
+            }
 
-        if (resultCode == 111) {
-            val imageBitmap = data!!.extras!!.get("data") as Bitmap
-            val showImage = findViewById<ImageView>(R.id.iv_image)
+            112 -> {
+                val imageUri = data!!.data
+                showImage.setImageURI(imageUri)
+            }
 
-            showImage.setImageBitmap(imageBitmap)
+            else -> {
+                d("onActivityResult Error", resultCode.toString())
+            }
         }
     }
 }

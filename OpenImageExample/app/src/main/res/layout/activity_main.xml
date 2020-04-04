@@ -13,12 +13,25 @@
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/image" />
 
-    <Button
-        android:id="@+id/btn_open"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_marginBottom="50dp"
-        android:text="Open Gallery" />
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_camera"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Take a Photo" />
+
+        <Button
+            android:id="@+id/btn_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Open Gallery" />
+    </LinearLayout>
+
 </RelativeLayout>
