@@ -10,12 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ContactAdapter(var peopleContact: ArrayList<ContactPerson>, var cx: Context): RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
     class ContactViewHolder(itemOfView: View) : RecyclerView.ViewHolder(itemOfView) {
-        val profileImage: ImageView = itemOfView.findViewById(R.id.profile_image)
-        val profileName: TextView = itemOfView.findViewById(R.id.profile_name)
+        val profileImage: ImageView = itemOfView.findViewById(R.id.person_image)
+        val profileName: TextView = itemOfView.findViewById(R.id.person_name)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
-        val layout = LayoutInflater.from(cx).inflate(R.layout.custom_item, parent, false)
+        val layout = LayoutInflater.from(cx).inflate(R.layout.person, parent, false)
 
         return ContactViewHolder(layout)
     }
