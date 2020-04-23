@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.item_buletin.view.*
 
 class BuletinAdapter(
     private val listOfBuletin: List<Buletin>,
-    val onClickListener: OnClickListener
+    private val onClickListener: OnClickListener
 ) : RecyclerView.Adapter<BuletinAdapter.BuletinViewHolder>() {
 
     // Make the class extend RecyclerView.ViewHolder, allowing the adapter to use it as as a ViewHolder.

@@ -10,6 +10,7 @@ import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import id.go.dephub.itjen.portal.R
+import kotlinx.android.synthetic.main.fragment_detail_struktur.*
 
 class StrukturFragment : Fragment(), View.OnClickListener {
 
@@ -31,9 +32,9 @@ class StrukturFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        var strukturUrl = when (v!!.id) {
-            R.id.btItjen -> "https://itjen.dephub.go.id/wp-content/uploads/2020/01/struktur-org-1024x724.jpg"
-            R.id.btSetitjen-> "https://itjen.dephub.go.id/wp-content/uploads/2020/01/struktur-org-Sesit-1024x724.jpg"
+        val strukturUrl = when (v!!.id) {
+            R.id.btItjen -> "https://itjen.dephub.go.id/wp-content/uploads/2020/03/struktur-org.jpg"
+            R.id.btSetitjen-> "https://itjen.dephub.go.id/wp-content/uploads/2020/03/struktur-org-Sesit.jpg"
             else -> null
         }
         val bundle = bundleOf("strukturUrl" to strukturUrl)

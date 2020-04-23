@@ -28,9 +28,9 @@ class DetailPostFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        postLink = arguments!!.getString("postLink")!!
-        postContent = arguments!!.getString("postContent")!!
-        postTitle = arguments!!.getString("postTitle")!!
+        postLink = requireArguments().getString("postLink").toString()
+        postContent = requireArguments().getString("postContent").toString()
+        postTitle = requireArguments().getString("postTitle").toString()
         //(activity as AppCompatActivity).supportActionBar!!.hide()
     }
 

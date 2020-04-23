@@ -59,8 +59,8 @@
     <fragment
         android:id="@+id/detailStruktur"
         android:name="id.go.dephub.itjen.portal.struktur.DetailStruktur"
-        android:label="fragment_detail_struktur"
-        tools:layout="@layout/fragment_detail_struktur" >
+        android:label="Struktur Organisasi"
+        tools:layout="@layout/fragment_detail_struktur">
         <argument
             android:name="strukturUrl"
             app:argType="string" />

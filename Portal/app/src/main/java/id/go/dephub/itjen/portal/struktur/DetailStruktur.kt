@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import id.go.dephub.itjen.portal.R
 import kotlinx.android.synthetic.main.fragment_detail_struktur.*
@@ -29,7 +30,7 @@ class DetailStruktur : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        strukturUrl = arguments!!.getString("strukturUrl")!!
+        strukturUrl = requireArguments().getString("strukturUrl").toString()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

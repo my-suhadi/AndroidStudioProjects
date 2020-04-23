@@ -24,7 +24,7 @@ class BuletinViewer : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        buletinUrl = arguments!!.getString("buletinUrl")!!
+        buletinUrl = requireArguments().getString("buletinUrl")!!
         (activity as AppCompatActivity).supportActionBar!!.hide()
     }
 
