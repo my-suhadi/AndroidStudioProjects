@@ -3,5 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/design_default_color_secondary_variant"
-    tools:context=".AndroidFragment" />
+    tools:context=".AndroidFragment" >
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_android_fr"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</FrameLayout>
