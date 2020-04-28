@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">View Pager</string>
+    <string name="title_activity_my_tabbed">MyTabbedActivity</string>
+    <string name="tab_text_1">Beranda</string>
+    <string name="tab_text_2">Akun</string>
+    <string name="tab_text_3">Pengaturan</string>
+
+    <string name="beranda_fragment">Beranda fragment</string>
+    <string name="akun_fragment">Akun fragment</string>
+    <string name="pengaturan_fragment">Pengaturan fragment</string>
+</resources>
