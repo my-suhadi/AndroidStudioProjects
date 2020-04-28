@@ -23,7 +23,7 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
-        var mainFragment: Fragment? = null
+        var mainFragment = Fragment()
         val akun = Akun()
         val beranda = Beranda()
         val pengaturan = Pengaturan()
@@ -34,7 +34,7 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
             2 -> mainFragment = pengaturan
         }
 
-        return mainFragment!!
+        return mainFragment
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
