@@ -6,8 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
 
+    <Button
+        android:id="@+id/btn_go"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mulai" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/my_recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/btn_go" />
 </RelativeLayout>

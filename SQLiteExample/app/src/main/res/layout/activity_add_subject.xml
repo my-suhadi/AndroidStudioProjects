@@ -20,7 +20,7 @@
             android:layout_marginBottom="20dp"
             android:ems="10"
             android:hint="Judul"
-            android:inputType="textPersonName" />
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/ed_desc"
@@ -29,7 +29,7 @@
             android:layout_marginBottom="20dp"
             android:ems="10"
             android:hint="Deskripsi"
-            android:inputType="textPersonName" />
+            android:inputType="text" />
     </LinearLayout>
 
     <Button
