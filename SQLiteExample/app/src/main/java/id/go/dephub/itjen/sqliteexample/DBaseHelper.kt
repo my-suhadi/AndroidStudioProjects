@@ -24,6 +24,11 @@ class DBaseHelper(_cx: Context) : SQLiteOpenHelper(_cx, DB_name, null, 1) {
         dataBase.insert(TB_name, null, values)
     }
 
+    fun hapusData(id: String): Int {
+        val dataBase = this.writableDatabase
+        return dataBase.delete(TB_name,"ID = ?", arrayOf(id))
+    }
+
     val ambilData: Cursor
         get() {
             val dataBase = this.writableDatabase
