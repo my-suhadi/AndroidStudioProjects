@@ -47,7 +47,10 @@ class MainActivity : AppCompatActivity() {
         } else {
             mAuth.createUserWithEmailAndPassword(userEmail, userPass).addOnCompleteListener {
                 if (it.isSuccessful) {
-                    Toast.makeText(applicationContext, "Akun sudah dibuat", Toast.LENGTH_SHORT).show()
+                    val curUser = mAuth.currentUser!!
+                    curUser.sendEmailVerification()
+
+                    Toast.makeText(applicationContext, "Akun sudah dibuat silakan cek email Anda", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(applicationContext, it.exception?.message, Toast.LENGTH_LONG).show()
                 }
@@ -61,7 +64,13 @@ class MainActivity : AppCompatActivity() {
         } else {
             mAuth.signInWithEmailAndPassword(userEmail, userPass).addOnCompleteListener {
                 if (it.isSuccessful) {
-                    Toast.makeText(applicationContext, "Berhasil login", Toast.LENGTH_SHORT).show()
+                    val curUser = mAuth.currentUser!!
+
+                    if (curUser.isEmailVerified) {
+                        Toast.makeText(applicationContext, "Berhasil login", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(applicationContext, "Silakan verifikasi email terlebih dahulu", Toast.LENGTH_SHORT).show()
+                    }
                 } else {
                     Toast.makeText(applicationContext, it.exception?.message, Toast.LENGTH_LONG).show()
                 }
