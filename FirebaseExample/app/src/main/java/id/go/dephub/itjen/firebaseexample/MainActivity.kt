@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var btnDaftar: Button
     private lateinit var btnMasuk: Button
+    private lateinit var btnReset: Button
     private lateinit var etUserEmail: EditText
     private lateinit var etPassword: EditText
     private lateinit var mAuth: FirebaseAuth
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         btnDaftar = findViewById(R.id.btn_daftar)
         btnMasuk = findViewById(R.id.btn_masuk)
+        btnReset = findViewById(R.id.btn_reset)
         etUserEmail = findViewById(R.id.user_email)
         etPassword = findViewById(R.id.user_pass)
         mAuth = FirebaseAuth.getInstance()
@@ -32,6 +34,10 @@ class MainActivity : AppCompatActivity() {
 
         btnMasuk.setOnClickListener {
             loginUser(etUserEmail.text.toString().trim(), etPassword.text.toString())
+        }
+
+        btnReset.setOnClickListener {
+            resetAkun(etUserEmail.text.toString().trim())
         }
     }
 
@@ -56,6 +62,20 @@ class MainActivity : AppCompatActivity() {
             mAuth.signInWithEmailAndPassword(userEmail, userPass).addOnCompleteListener {
                 if (it.isSuccessful) {
                     Toast.makeText(applicationContext, "Berhasil login", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(applicationContext, it.exception?.message, Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+    }
+
+    private fun resetAkun(userEmail: String) {
+        if (userEmail.isEmpty()) {
+            Toast.makeText(applicationContext, "Alamat email tidak boleh kosong", Toast.LENGTH_SHORT).show()
+        } else {
+            mAuth.sendPasswordResetEmail(userEmail).addOnCompleteListener {
+                if (it.isSuccessful) {
+                    Toast.makeText(applicationContext, "Silakan cek email anda untuk mereset password", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(applicationContext, it.exception?.message, Toast.LENGTH_LONG).show()
                 }
