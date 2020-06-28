@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                     val curUser = mAuth.currentUser!!
 
                     if (curUser.isEmailVerified) {
-                        startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
+                        startActivity(Intent(this@MainActivity, UserInfoActivity::class.java))
                         Toast.makeText(applicationContext, "Berhasil login", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(applicationContext, "Silakan verifikasi email terlebih dahulu", Toast.LENGTH_SHORT).show()
