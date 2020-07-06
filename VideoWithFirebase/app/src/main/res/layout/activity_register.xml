@@ -8,7 +8,7 @@
     tools:context=".LoginActivity">
 
     <TextView
-        android:id="@+id/tv_judul_register"
+        android:id="@+id/daftar_tv_judul"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"

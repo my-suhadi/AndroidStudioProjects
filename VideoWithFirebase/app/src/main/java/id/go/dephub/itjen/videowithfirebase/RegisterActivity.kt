@@ -23,11 +23,10 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun registerUser(_email: String, _pass: String) {
-        val mAuth = FirebaseAuth.getInstance()
-
         if (_email.isEmpty() || _pass.isEmpty()) {
             Toast.makeText(this, "Harap masukin alamat email dan password", Toast.LENGTH_SHORT).show()
         } else {
+            val mAuth = FirebaseAuth.getInstance()
             mAuth.createUserWithEmailAndPassword(_email, _pass).addOnCompleteListener {
                 if (it.isSuccessful) {
                     Toast.makeText(this, "Akun berhasil dibuat", Toast.LENGTH_SHORT).show()

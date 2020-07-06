@@ -8,7 +8,7 @@
     tools:context=".LoginActivity">
 
     <TextView
-        android:id="@+id/tv_judul_login"
+        android:id="@+id/login_tv_judul"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -22,7 +22,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/et_email_login"
+        android:id="@+id/login_et_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -37,10 +37,10 @@
         android:autofillHints="" />
 
     <EditText
-        android:id="@+id/et_pass_login"
+        android:id="@+id/login_et_pass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/et_email_login"
+        android:layout_below="@id/login_et_email"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
@@ -53,10 +53,10 @@
         android:autofillHints="" />
 
     <Button
-        android:id="@+id/btn_masuk_submit"
+        android:id="@+id/login_btn_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/et_pass_login"
+        android:layout_below="@id/login_et_pass"
         android:layout_centerHorizontal="true"
         android:background="@drawable/button"
         android:text="@string/masuk"
