@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_nav_beranda_to_nav_struktur"
             app:destination="@id/nav_struktur" />
+        <action
+            android:id="@+id/action_nav_beranda_to_nav_rb"
+            app:destination="@id/nav_rb" />
     </fragment>
     <fragment
         android:id="@+id/nav_struktur"
@@ -65,4 +68,9 @@
             android:name="strukturUrl"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/nav_rb"
+        android:name="id.go.dephub.itjen.portal.rb.RbFragment"
+        android:label="@string/title_rb"
+        tools:layout="@layout/fragment_rb" />
 </navigation>
