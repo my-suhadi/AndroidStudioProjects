@@ -14,7 +14,11 @@
             app:destination="@id/nav_buletin" />
         <action
             android:id="@+id/action_nav_beranda_to_detail_post"
-            app:destination="@id/detail_post" />
+            app:destination="@id/detail_post"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
             android:id="@+id/action_nav_beranda_to_nav_struktur"
             app:destination="@id/nav_struktur" />
@@ -72,5 +76,21 @@
         android:id="@+id/nav_rb"
         android:name="id.go.dephub.itjen.portal.rb.RbFragment"
         android:label="@string/title_rb"
-        tools:layout="@layout/fragment_rb" />
+        tools:layout="@layout/fragment_rb" >
+        <action
+            android:id="@+id/action_nav_rb_to_rbDetailViewer"
+            app:destination="@id/rbDetailViewer"
+            app:enterAnim="@anim/fragment_close_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/rbDetailViewer"
+        android:name="id.go.dephub.itjen.portal.rb.RbDetailViewer"
+        tools:layout="@layout/fragment_rb_detail_viewer" >
+        <argument
+            android:name="rbDetailUrl"
+            app:argType="string" />
+    </fragment>
 </navigation>

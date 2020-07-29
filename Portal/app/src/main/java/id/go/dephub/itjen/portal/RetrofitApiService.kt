@@ -15,6 +15,7 @@ interface RetrofitApiService {
     @GET("wp/v2/media/{id}")
     fun getImage(@Path("id") id : Int ): Call<Image>
     // menu_item_parent utk transparansi adl 1602
+    // menu_item_parent utk rb adl 2799
     @GET("menus/v1/menus/3")
     fun getMenuList(): Call<List<Menu>>
 

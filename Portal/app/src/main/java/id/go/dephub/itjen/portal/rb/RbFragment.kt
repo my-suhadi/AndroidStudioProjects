@@ -32,6 +32,6 @@ class RbFragment : Fragment() {
         )
 
         rv_reformasi_birokrasi.layoutManager = LinearLayoutManager(requireContext())
-        rv_reformasi_birokrasi.adapter = RbAdapter(dataPostRb, requireContext())
+        rv_reformasi_birokrasi.adapter = RbAdapter(dataPostRb, requireContext(), requireView())
     }
 }
