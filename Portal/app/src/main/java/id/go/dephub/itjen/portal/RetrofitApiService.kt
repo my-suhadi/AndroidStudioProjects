@@ -3,6 +3,7 @@ package id.go.dephub.itjen.portal
 import id.go.dephub.itjen.portal.beranda.model.media.Image
 import id.go.dephub.itjen.portal.beranda.model.Post
 import id.go.dephub.itjen.portal.buletin.model.Menu
+import id.go.dephub.itjen.portal.rb.model.RbMenu
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -18,6 +19,8 @@ interface RetrofitApiService {
     // menu_item_parent utk rb adl 2799
     @GET("menus/v1/menus/3")
     fun getMenuList(): Call<List<Menu>>
+    @GET("menus/v1/menus/3")
+    fun getRbMenuList(): Call<List<RbMenu>>
 
     companion object {
         fun create() : RetrofitApiService {

@@ -50,8 +50,8 @@ class RbDetailViewer : Fragment() {
         rbWebView.loadUrl(rbUrl)
     }
 
-    override fun onDestroyOptionsMenu() {
+    override fun onDestroy() {
         (activity as AppCompatActivity).supportActionBar!!.show()
-        super.onDestroyOptionsMenu()
+        super.onDestroy()
     }
 }
