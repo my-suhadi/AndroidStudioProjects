@@ -27,14 +27,18 @@ class RbFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val listOfRbPost = mutableListOf<RbModel>()
 
-        RetrofitApiService.create().getRbMenuList().enqueue(object : Callback<List<RbMenu>> {
+        // buat servis retrofit baru
+        val serviceRetro = RetrofitApiService.create(requireContext())
+
+        // ambil data json dr menu reformasi birokrasi menggunakan menu_parent_id = 2799
+        serviceRetro.getRbMenuList().enqueue(object : Callback<List<RbMenu>> {
             override fun onFailure(call: Call<List<RbMenu>>, t: Throwable) {
                 Log.d("RbFragment", "onFailure: ${t.localizedMessage}")
             }
 
             override fun onResponse(call: Call<List<RbMenu>>, response: Response<List<RbMenu>>) {
+                val listOfRbPost = mutableListOf<RbModel>()
                 val j = response.body()!!.size - 1
 
                 for (i in 0..j) {
@@ -55,8 +59,6 @@ class RbFragment : Fragment() {
             RbModel("Dokumentasi", "https://itjen.dephub.go.id/dokumentasi/")
         )
 */
-
-        Log.d("listOfRbPost", listOfRbPost.size.toString())
         rv_reformasi_birokrasi.layoutManager = LinearLayoutManager(requireContext())
     }
 }

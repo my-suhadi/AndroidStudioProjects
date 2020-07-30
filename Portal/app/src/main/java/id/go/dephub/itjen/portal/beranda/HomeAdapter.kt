@@ -45,7 +45,7 @@ class HomeAdapter(private val posts: List<Post>, private val onClickListener: On
 
         Glide.get(holder.itemView.context).setMemoryCategory(MemoryCategory.HIGH)
         // membuat retrofit lagi karena url image yg terdapat dalam masing2 post jg berupa json
-        RetrofitApiService.create().getImage(post.featuredMedia).enqueue(object : Callback<Image> {
+        RetrofitApiService.create(holder.itemView.context).getImage(post.featuredMedia).enqueue(object : Callback<Image> {
             override fun onFailure(call: Call<Image>, t: Throwable) {
                 d("HomeAdapter", "onFailure: ${t.localizedMessage}")
             }

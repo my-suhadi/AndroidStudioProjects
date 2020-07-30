@@ -54,7 +54,7 @@ class HomeFragment : Fragment() {
         4 : api.getAllPosts()
         */
 
-        RetrofitApiService.create().getAllPosts().enqueue(object : Callback<List<Post>> {
+        RetrofitApiService.create(requireContext()).getAllPosts().enqueue(object : Callback<List<Post>> {
             override fun onFailure(call: Call<List<Post>>, t: Throwable) {
                 d("onActivityCreated", "onFailure: ${t.localizedMessage}")
             }

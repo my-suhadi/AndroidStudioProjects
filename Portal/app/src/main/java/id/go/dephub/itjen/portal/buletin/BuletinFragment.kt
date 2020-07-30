@@ -39,7 +39,7 @@ class BuletinFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         rvBuletin.layoutManager = GridLayoutManager(activity, 3)
 
-        RetrofitApiService.create().getMenuList().enqueue(object : Callback<List<Menu>> {
+        RetrofitApiService.create(requireContext()).getMenuList().enqueue(object : Callback<List<Menu>> {
             override fun onFailure(call: Call<List<Menu>>, t: Throwable) {
                 d("BuletinFragment", "onFailure: ${t.localizedMessage}")
             }
