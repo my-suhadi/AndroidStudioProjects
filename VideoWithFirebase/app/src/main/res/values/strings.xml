@@ -3,7 +3,7 @@
     <string name="daftar">Daftar</string>
     <string name="atau">ATAU</string>
     <string name="masuk">Masuk</string>
-    <string name="judul_masuk">Silakan Masuk Ke Akun Anda</string>
+    <string name="judul_masuk">Silakan Masuk Kedalam Akun Anda</string>
     <string name="judul_daftar">Buat Akun Baru</string>
     <string name="hint_email">Alamat email Anda</string>
     <string name="hint_pass">Password Anda</string>
