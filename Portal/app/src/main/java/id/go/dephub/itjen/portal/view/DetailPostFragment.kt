@@ -26,9 +26,9 @@ class DetailPostFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btnKembali.setOnClickListener {
-            val actionKembali = DetailPostFragmentDirections.actionDetailPostFragmentToPostListFragment()
-            Navigation.findNavController(it).navigate(actionKembali)
+        arguments?.let {
+            val postLink = DetailPostFragmentArgs.fromBundle(it).postLink
+            Log.d("onViewCreated", postLink)
         }
     }
 }
