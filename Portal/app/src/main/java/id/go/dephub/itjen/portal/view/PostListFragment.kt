@@ -6,14 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.go.dephub.itjen.portal.R
 import id.go.dephub.itjen.portal.viewmodel.PostListViewModel
 import kotlinx.android.synthetic.main.fragment_post_list.*
 
 class PostListFragment : Fragment() {
-    private lateinit var postViewModel:PostListViewModel
+    private lateinit var postViewModel: PostListViewModel
     private val postListAdapter = PostListAdapter(arrayListOf())
 
     override fun onCreateView(
@@ -27,11 +27,18 @@ class PostListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        postViewModel = ViewModelProviders.of(this).get(PostListViewModel::class.java)
+        postViewModel = ViewModelProvider(this).get(PostListViewModel::class.java)
         postViewModel.refresh()
         postList.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = postListAdapter
+        }
+
+        refreshLayout.setOnRefreshListener {
+            refreshLayout.isRefreshing = false
+            postList.visibility = View.GONE
+            listError.visibility = View.GONE
+            postViewModel.refresh()
         }
 
         observeViewModel()

@@ -27,7 +27,7 @@
             tools:text="Post Title" />
 
         <TextView
-            android:id="@+id/PostDesc"
+            android:id="@+id/postDesc"
             style="@style/PostDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

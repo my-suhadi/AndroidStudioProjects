@@ -3,17 +3,20 @@ package id.go.dephub.itjen.portal.view
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import id.go.dephub.itjen.portal.R
 import id.go.dephub.itjen.portal.model.PostModel
 import kotlinx.android.synthetic.main.item_post.view.*
 
-class PostListAdapter(_postList: ArrayList<PostModel>):RecyclerView.Adapter<PostListAdapter.PostViewHolder>() {
-    private val postList = _postList
+class PostListAdapter(_postList: ArrayList<PostModel>) :
+    RecyclerView.Adapter<PostListAdapter.PostViewHolder>() {
 
-    class PostViewHolder(_itemOfView: View):RecyclerView.ViewHolder(_itemOfView) {
+    class PostViewHolder(_itemOfView: View) : RecyclerView.ViewHolder(_itemOfView) {
         internal val itemOfView = _itemOfView
     }
+
+    private val postList = _postList
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -24,8 +27,16 @@ class PostListAdapter(_postList: ArrayList<PostModel>):RecyclerView.Adapter<Post
     override fun getItemCount() = postList.size
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-        holder.itemOfView.postTitle.text = postList[position].postTitle
-        holder.itemOfView.postDesc.text = postList[position].postUrl
+        val postTitle = postList[position].title.rendered
+        val postUrl = postList[position].link
+
+        holder.itemOfView.postTitle.text = postTitle
+        holder.itemOfView.postDesc.text = postUrl
+        holder.itemOfView.setOnClickListener {
+            Navigation.findNavController(it).navigate(
+                PostListFragmentDirections.actionPostListFragmentToDetailPostFragment(postTitle, postUrl)
+            )
+        }
     }
 
     fun updatePostList(newPostList: List<PostModel>) {
