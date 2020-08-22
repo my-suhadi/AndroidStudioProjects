@@ -7,5 +7,5 @@ data class Content(
     val protected: Boolean,
 
     @SerializedName("rendered")
-    val rendered: String
+    val text: String
 )

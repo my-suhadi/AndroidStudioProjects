@@ -13,7 +13,7 @@ class Converters {
         // ===== Title converter =====
         @TypeConverter
         @JvmStatic
-        internal fun fromTitle(t: Title) = t.rendered
+        internal fun fromTitle(t: Title) = t.text
 
         @TypeConverter
         @JvmStatic
@@ -22,7 +22,7 @@ class Converters {
         // ===== Content converter =====
         @TypeConverter
         @JvmStatic
-        internal fun fromContent(c: Content) = c.rendered
+        internal fun fromContent(c: Content) = c.text
 
         @TypeConverter
         @JvmStatic

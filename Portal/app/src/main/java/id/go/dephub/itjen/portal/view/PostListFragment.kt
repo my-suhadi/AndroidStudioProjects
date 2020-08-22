@@ -42,7 +42,6 @@ class PostListFragment : Fragment() {
             postViewModel.refreshBypassDatabase()
         }
 
-        Log.d("PostListFragment", "onViewCreated")
         observeViewModel()
     }
 

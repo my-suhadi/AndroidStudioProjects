@@ -1,12 +1,20 @@
 package id.go.dephub.itjen.portal.viewmodel
 
+import android.app.Application
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import id.go.dephub.itjen.portal.model.PostDatabase
 import id.go.dephub.itjen.portal.model.PostModel
+import id.go.dephub.itjen.portal.util.SharedPreferencesHelper
+import kotlinx.coroutines.launch
 
-class DetailPostViewModel : ViewModel() {
+class DetailPostViewModel(app:Application) : BaseViewModel(app) {   // parameter dan pewarisannya harus sama dengan PostListViewModel
     internal val postLiveData = MutableLiveData<PostModel>()
 
-    fun fetch() {
+    internal fun fetch(postId:Int) {
+        launch {
+            val post = PostDatabase.invoke(getApplication()).postDao().getPost(postId)
+            postLiveData.value = post
+        }
+        SharedPreferencesHelper(getApplication()).savedUpdateTime(System.nanoTime())
     }
 }

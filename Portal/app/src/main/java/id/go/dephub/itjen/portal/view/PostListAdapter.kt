@@ -33,17 +33,14 @@ class PostListAdapter(_postList: ArrayList<PostModel>) :
     override fun getItemCount() = postList.size
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-        val postTitle = postList[position].title.rendered
+        val postTitle = postList[position].title.text
         val postUrl = postList[position].link
 
         holder.itemOfView.postTitle.text = postTitle
         holder.itemOfView.postDesc.text = postUrl
         holder.itemOfView.setOnClickListener {
             Navigation.findNavController(it).navigate(
-                PostListFragmentDirections.actionPostListFragmentToDetailPostFragment(
-                    postTitle,
-                    postUrl
-                )
+                PostListFragmentDirections.actionPostListFragmentToDetailPostFragment(postList[position].postId)
             )
         }
         holder.itemOfView.postImage.loadImage(

@@ -47,6 +47,7 @@ class PostListViewModel(app: Application) : BaseViewModel(app) {
 
     private fun fetchFromRemote() {
         loading.value = true
+        // gunakan flatMap() untuk chaining retrofit api
         disposablePost.add(
             postApiService.getAllPost()
                 .subscribeOn(Schedulers.newThread())
