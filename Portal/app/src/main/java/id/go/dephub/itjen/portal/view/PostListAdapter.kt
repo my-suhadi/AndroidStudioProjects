@@ -3,22 +3,17 @@ package id.go.dephub.itjen.portal.view
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import id.go.dephub.itjen.portal.R
+import id.go.dephub.itjen.portal.databinding.ItemPostBinding
 import id.go.dephub.itjen.portal.model.PostModel
-import id.go.dephub.itjen.portal.util.getProgressDrawable
-import id.go.dephub.itjen.portal.util.loadImage
-import kotlinx.android.synthetic.main.item_post.view.*
-import kotlinx.android.synthetic.main.item_post.view.postDesc
-import kotlinx.android.synthetic.main.item_post.view.postImage
-import kotlinx.android.synthetic.main.item_post.view.postTitle
 
 class PostListAdapter(_postList: ArrayList<PostModel>) :
-    RecyclerView.Adapter<PostListAdapter.PostViewHolder>() {
+    RecyclerView.Adapter<PostListAdapter.PostViewHolder>(), PostClickListener {
 
-    class PostViewHolder(_itemOfView: View) : RecyclerView.ViewHolder(_itemOfView) {
+    class PostViewHolder(_itemOfView: ItemPostBinding) : RecyclerView.ViewHolder(_itemOfView.root) {
         internal val itemOfView = _itemOfView
     }
 
@@ -26,32 +21,26 @@ class PostListAdapter(_postList: ArrayList<PostModel>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val v = inflater.inflate(R.layout.item_post, parent, false)
+        val v =
+            DataBindingUtil.inflate<ItemPostBinding>(inflater, R.layout.item_post, parent, false)
         return PostViewHolder(v)
     }
 
     override fun getItemCount() = postList.size
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-        val postTitle = postList[position].title.text
-        val postUrl = postList[position].link
-
-        holder.itemOfView.postTitle.text = postTitle
-        holder.itemOfView.postDesc.text = postUrl
-        holder.itemOfView.setOnClickListener {
-            Navigation.findNavController(it).navigate(
-                PostListFragmentDirections.actionPostListFragmentToDetailPostFragment(postList[position].postId)
-            )
-        }
-        holder.itemOfView.postImage.loadImage(
-            "https://raw.githubusercontent.com/DevTides/DogsApi/master/1.jpg",
-            getProgressDrawable(holder.itemOfView.context)
-        )
+        holder.itemOfView.itemPostingan = postList[position]
+        holder.itemOfView.listener = this
     }
 
     fun updatePostList(newPostList: List<PostModel>) {
         postList.clear()
         postList.addAll(newPostList)
         notifyDataSetChanged()
+    }
+
+    override fun onPostClicked(v: View, postId: Int) {
+        val action = PostListFragmentDirections.actionPostListFragmentToDetailPostFragment(postId)
+        Navigation.findNavController(v).navigate(action)
     }
 }

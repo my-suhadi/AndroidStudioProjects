@@ -1,37 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="125dp">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/postImage"
-        android:layout_width="200dp"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:padding="4dp"
-        tools:srcCompat="@mipmap/ic_trimatra" />
+    <data>
+
+        <variable
+            name="itemPostingan"
+            type="id.go.dephub.itjen.portal.model.PostModel" />
+
+        <variable
+            name="listener"
+            type="id.go.dephub.itjen.portal.view.PostClickListener" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="3"
-        android:orientation="vertical"
-        android:padding="4dp">
+        android:layout_height="125dp"
+        android:onClick="@{(v) -> listener.onPostClicked(v, itemPostingan.postId)}">
 
-        <TextView
-            android:id="@+id/postTitle"
-            style="@style/PostTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+        <ImageView
+            android:id="@+id/postImage"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:padding="4dp"
+            tools:srcCompat="@mipmap/ic_trimatra" />
 
-        <TextView
-            android:id="@+id/postDesc"
-            style="@style/PostDesc"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/postTitle"
+                style="@style/PostTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{itemPostingan.title.text}"
+                tools:text="Post Title" />
+
+            <TextView
+                android:id="@+id/postDesc"
+                style="@style/PostDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{itemPostingan.link}"
+                tools:text="Post Desc" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</layout>

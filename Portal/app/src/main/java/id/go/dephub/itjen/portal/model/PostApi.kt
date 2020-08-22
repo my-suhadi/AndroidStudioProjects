@@ -7,6 +7,6 @@ import retrofit2.http.Path
 interface PostApi {
     @GET("wp-json/wp/v2/posts/")
     fun getAllPosts(): Single<List<PostModel>>
-    @GET("wp/v2/media/{id}")
+    @GET("wp-json/wp/v2/media/{id}")
     fun getImage(@Path("id") id : Int ): Single<ImageModel>
 }

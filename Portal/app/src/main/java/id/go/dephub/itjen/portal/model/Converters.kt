@@ -1,12 +1,9 @@
 package id.go.dephub.itjen.portal.model
 
-import android.util.Log
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
-import kotlin.collections.arrayListOf as arrayListOf
-
 
 class Converters {
     companion object {
