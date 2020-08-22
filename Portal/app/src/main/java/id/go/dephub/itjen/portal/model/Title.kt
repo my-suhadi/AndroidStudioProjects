@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class Title(
     @SerializedName("rendered")
-    internal val rendered: String
+    val rendered: String
 )

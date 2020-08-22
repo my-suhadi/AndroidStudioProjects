@@ -4,8 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 data class Content(
     @SerializedName("protected")
-    internal val protected: Boolean,
+    val protected: Boolean,
 
     @SerializedName("rendered")
-    internal val rendered: String
+    val rendered: String
 )
