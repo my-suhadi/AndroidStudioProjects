@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import id.go.dephub.itjen.portal.model.PostDatabase
 import id.go.dephub.itjen.portal.model.PostModel
 import id.go.dephub.itjen.portal.model.RetrofitApiService
+import id.go.dephub.itjen.portal.util.NotifHelper
 import id.go.dephub.itjen.portal.util.SharedPreferencesHelper
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -13,7 +14,7 @@ import io.reactivex.rxjava3.observers.DisposableSingleObserver
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.launch
 
-class PostListViewModel(app: Application) : BaseViewModel(app) {
+class PostListViewModel(_app: Application) : BaseViewModel(_app) {
 
     private val postApiService = RetrofitApiService()
     private val disposablePost = CompositeDisposable()
@@ -55,6 +56,7 @@ class PostListViewModel(app: Application) : BaseViewModel(app) {
                 .subscribeWith(object : DisposableSingleObserver<List<PostModel>>() {
                     override fun onSuccess(value: List<PostModel>) {
                         storePostLocally(value)
+                        NotifHelper(getApplication()).createNotifikasi()
                     }
 
                     override fun onError(e: Throwable?) {
@@ -66,23 +68,23 @@ class PostListViewModel(app: Application) : BaseViewModel(app) {
         )
     }
 
-    private fun retrieveAllPosts(_postList: List<PostModel>) {
-        allPosts.value = _postList
+    private fun retrieveAllPosts(postList: List<PostModel>) {
+        allPosts.value = postList
         postLoadError.value = false
         loading.value = false
     }
 
-    private fun storePostLocally(_postList: List<PostModel>) {
+    private fun storePostLocally(postList: List<PostModel>) {
         launch {
             val dao = PostDatabase(getApplication()).postDao()
             dao.hapusSemuaPost()
-            val result = dao.insertSemua(*_postList.toTypedArray())
+            val result = dao.insertSemua(*postList.toTypedArray())
             var i = 0
-            while (i < _postList.size) {
-                _postList[i].postId = result[i].toInt()
+            while (i < postList.size) {
+                postList[i].postId = result[i].toInt()
                 i++
             }
-            retrieveAllPosts(_postList)
+            retrieveAllPosts(postList)
         }
         prefHelper.savedUpdateTime(System.nanoTime())
     }

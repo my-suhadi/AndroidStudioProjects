@@ -7,10 +7,10 @@ import id.go.dephub.itjen.portal.model.PostModel
 import id.go.dephub.itjen.portal.util.SharedPreferencesHelper
 import kotlinx.coroutines.launch
 
-class DetailPostViewModel(app:Application) : BaseViewModel(app) {   // parameter dan pewarisannya harus sama dengan PostListViewModel
+class DetailPostViewModel(_app: Application) : BaseViewModel(_app) {   // parameter dan pewarisannya harus sama dengan PostListViewModel
     internal val postLiveData = MutableLiveData<PostModel>()
 
-    internal fun fetch(postId:Int) {
+    internal fun fetch(postId: Int) {
         launch {
             val post = PostDatabase.invoke(getApplication()).postDao().getPost(postId)
             postLiveData.value = post

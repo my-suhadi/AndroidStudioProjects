@@ -15,22 +15,22 @@ class SharedPreferencesHelper {
 
         private val LOCK = Any()
 
-        operator fun invoke(_cx: Context): SharedPreferencesHelper =
+        operator fun invoke(cx: Context): SharedPreferencesHelper =
             anInstant ?: synchronized(LOCK) {
-                anInstant ?: buildHelper(_cx).also {
+                anInstant ?: buildHelper(cx).also {
                     anInstant = it
                 }
             }
 
-        private fun buildHelper(_cx: Context): SharedPreferencesHelper {
-            prefs = PreferenceManager.getDefaultSharedPreferences(_cx)
+        private fun buildHelper(cx: Context): SharedPreferencesHelper {
+            prefs = PreferenceManager.getDefaultSharedPreferences(cx)
             return SharedPreferencesHelper()
         }
     }
 
-    internal fun savedUpdateTime(_time: Long) {
+    internal fun savedUpdateTime(time: Long) {
         prefs.edit(commit = true) {
-            putLong(PREF_TIME, _time)
+            putLong(PREF_TIME, time)
         }
     }
 

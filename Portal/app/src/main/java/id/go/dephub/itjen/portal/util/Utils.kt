@@ -8,8 +8,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import id.go.dephub.itjen.portal.R
 
-internal fun getProgressDrawable(context: Context): CircularProgressDrawable {
-    return CircularProgressDrawable(context).apply {
+internal fun getProgressDrawable(cx: Context): CircularProgressDrawable {
+    return CircularProgressDrawable(cx).apply {
         strokeWidth = 10f
         centerRadius = 30f
         start()
