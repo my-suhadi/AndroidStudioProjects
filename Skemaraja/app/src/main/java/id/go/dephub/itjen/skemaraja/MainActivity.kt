@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
             }
         } else {
             runAbsensi()
-            Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Run absen", Toast.LENGTH_SHORT).show()
         }
     }
 
