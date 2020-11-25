@@ -34,7 +34,6 @@ class CustomWebViewClient(activity: Activity) : WebViewClient() {
     }
 
     override fun onPageFinished(view: WebView, url: String?) {
-        view.settings.setGeolocationEnabled(true)
         view.loadUrl(
             "javascript:(function() {" +
                     "document.getElementsByName('nip')[0].value = '198201192008121001';" +
@@ -45,7 +44,7 @@ class CustomWebViewClient(activity: Activity) : WebViewClient() {
                     "document.getElementById('location_user').value = '';" +
                     "document.getElementById('location_status').value = '';" +
                     "let z = document.getElementById('btnSubmit').click();" +
-                    "let x = document.getElementsByClassName('btn btn-primary')[0].click();" +
+//                    "let x = document.getElementsByClassName('btn btn-primary')[0].click();" +
                     "})()"
         )
         Toast.makeText(_activity, "Auto-fill Sukses", Toast.LENGTH_SHORT).show()

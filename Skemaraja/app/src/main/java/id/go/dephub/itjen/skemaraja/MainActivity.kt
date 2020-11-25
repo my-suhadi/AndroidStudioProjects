@@ -10,8 +10,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        web_view.webViewClient = CustomWebViewClient(this)
         web_view.webChromeClient = CustomWebChromeClient(this)
+        web_view.webViewClient = CustomWebViewClient(this)
         true.also {
             web_view.settings.javaScriptEnabled = it
         }
