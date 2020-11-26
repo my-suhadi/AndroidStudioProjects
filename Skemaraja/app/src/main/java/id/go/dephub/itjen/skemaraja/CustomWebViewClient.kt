@@ -43,8 +43,8 @@ class CustomWebViewClient(activity: Activity) : WebViewClient() {
                     "document.getElementById('timezone').value = 'Asia/Jakarta';" +
                     "document.getElementById('location_user').value = '';" +
                     "document.getElementById('location_status').value = '';" +
-                    "setTimeout(() => { let z = document.getElementById('btnSubmit').click(); }, 500);"+
-                    "setTimeout(() => { let x = document.getElementsByClassName('btn btn-primary')[0].click(); }, 1500);"+
+                    "setTimeout(() => { let z = document.getElementById('btnSubmit').click(); }, 100);"+
+//                    "setTimeout(() => { let x = document.getElementsByClassName('btn btn-primary')[0].click(); }, 1500);"+
                     "})()"
         )
         Toast.makeText(_activity, "Auto-fill Sukses", Toast.LENGTH_SHORT).show()
