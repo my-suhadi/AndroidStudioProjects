@@ -3,6 +3,7 @@ package id.go.dephub.itjen.skemaraja
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -51,6 +52,8 @@ class MainActivity : AppCompatActivity() {
         web_view.webViewClient = CustomWebViewClient(this)
         true.also {
             web_view.settings.javaScriptEnabled = it
+            web_view.settings.domStorageEnabled = it
+
         }
 
         web_view.settings.userAgentString = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 " +
@@ -58,6 +61,10 @@ class MainActivity : AppCompatActivity() {
 
         web_view.loadUrl("https://dp-wfh.dephub.go.id/")
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(Intent(this@MainActivity, SkemaService::class.java))
+            Toast.makeText(this, "Add to foreground service", Toast.LENGTH_SHORT).show()
+        }
         startService(Intent(this@MainActivity, SkemaService::class.java))
     }
 }
